@@ -55,10 +55,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReplyService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GetSome.Data\GetSome.Data.csproj">
+      <Project>{36577888-89EB-42DF-BCD3-5CC6F2A264CC}</Project>
+      <Name>GetSome.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GetSome.Models\GetSome.Models.csproj">
+      <Project>{75870424-EB65-4193-88FF-3ADCA26916E5}</Project>
+      <Name>GetSome.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
