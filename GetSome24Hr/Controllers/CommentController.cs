@@ -1,5 +1,6 @@
 ﻿using GetSome.Models;
 using GetSome.Services;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,8 +16,9 @@ namespace GetSome24Hr.Controllers
         //Creating a method to new up instance of CommentService 
         private CommentServices CreateCommentService()
         {
-            var commenService = new CommentServices();
-            return commenService;
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var commentService = new CommentServices(userId);
+            return commentService;
         }
 
         //GET (RETRIEVE COMMENTS)
