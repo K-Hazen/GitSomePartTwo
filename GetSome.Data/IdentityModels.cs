@@ -3,9 +3,12 @@ using System.Data.Entity.ModelConfiguration;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using DocumentFormat.OpenXml.Presentation;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Graph;
+using Nest;
 
 namespace GetSome.Data
 {
@@ -37,6 +40,7 @@ namespace GetSome.Data
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Reply> Replies { get; set; }
         public DbSet<Like> Likes { get; set; }
+        public object Reply { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
