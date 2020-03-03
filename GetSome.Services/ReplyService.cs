@@ -26,7 +26,7 @@ namespace GetSome.Services
                 };
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Reply.Add(entity);
+                ctx.Replies.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
@@ -37,14 +37,14 @@ namespace GetSome.Services
             {
                 var query =
                     ctx
-                        .Reply
+                        .Replies
                         .Where(e => e.UserId == _userId)
                         .Select(
                             e =>
                                 new ReplyListItem
                                 {
                                     ReplyId = e.ReplyId,
-                                    Title = e.Title,
+                                    Title = e.Text,
                                 }
                         );
                 return query.ToArray();
@@ -57,14 +57,13 @@ namespace GetSome.Services
             {
                 var entity =
                     ctx
-                        .Reply
+                        .Replies
                         .Single(e => e.ReplyId == id && e.UserId == _userId);
                 return
                     new ReplyDetail
                     {
                         ReplyId = entity.ReplyId,
-                        Title = entity.Title,
-                        Content = entity.Content,
+                        Title = entity.Text,
                     };
             }
         }
@@ -75,12 +74,10 @@ namespace GetSome.Services
             {
                 var entity =
                     ctx
-                        .Reply
+                        .Replies
                         .Single(e => e.ReplyId == model.ReplyId && e.UserId == _userId);
 
-                entity.Title = model.Title;
-                entity.Content = model.Content;
-
+                entity.Text = model.Content;
                 return ctx.SaveChanges() == 1;
             }
         }
@@ -91,9 +88,9 @@ namespace GetSome.Services
             {
                 var entity =
                     ctx
-                        .Reply.Single(e => e.ReplyId == replyId && e.UserId == _userId);
+                        .Replies.Single(e => e.ReplyId == replyId && e.UserId == _userId);
 
-                ctx.Reply.Remove(entity);
+                ctx.Replies.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
             }
