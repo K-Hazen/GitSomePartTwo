@@ -9,6 +9,7 @@ namespace GetSome.Data
 {
     public class Comment
     {
+
         [Key]
         public int CommentId { get; set; }
 
@@ -24,6 +25,7 @@ namespace GetSome.Data
 
 
         //Post CommentPost
+
 
     }
 }
