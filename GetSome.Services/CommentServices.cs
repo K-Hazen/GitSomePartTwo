@@ -10,6 +10,11 @@ namespace GetSome.Services
 {
     public class CommentServices
     {
+        Guid _userId;
+        public CommentServices(Guid userId)
+        {
+            _userId = userId;
+        }
         public bool CreateComment(CommentCreate model)
         {
             var entity =
@@ -17,7 +22,7 @@ namespace GetSome.Services
                 {
                     CommentId = model.CommentId,
                     Content = model.Content,
-                    Author = model.Author
+                    AuthorId = _userId,
 
                 };
 
@@ -40,8 +45,7 @@ namespace GetSome.Services
                         new CommentListItem
                         {
                             CommentId = e.CommentId,
-                            Author = e.Author
-
+                            AuthorId = e.AuthorId,
                         });
 
                 return query.ToArray();
@@ -60,7 +64,7 @@ namespace GetSome.Services
                     new CommentDetail
                     {
                         CommentId = entity.CommentId,
-                        Author = entity.Author,
+                        AuthorId = entity.AuthorId,
 
                     };
             }
@@ -76,7 +80,6 @@ namespace GetSome.Services
                     .Single(e => e.CommentId == model.CommentId);
 
                 entity.CommentId = model.CommentId;
-                entity.Author = model.Author;
                 entity.Content = model.Content;
 
                 return ctx.SaveChanges() == 1;

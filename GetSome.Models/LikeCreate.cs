@@ -9,7 +9,6 @@ namespace GetSome.Models
 {
     public class LikeCreate
     {
-        public Post LikedPost { get; set; }
-        public User Liker { get; set; }
+        public int PostId { get; set; }
     }
 }

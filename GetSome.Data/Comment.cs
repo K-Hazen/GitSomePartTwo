@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,10 +13,15 @@ namespace GetSome.Data
 
         [Key]
         public int CommentId { get; set; }
-
+        [Required]
         public string Content { get; set; }
+        [Required]
+        public Guid AuthorId { get; set; }
+        public virtual Post Post { get; set; }
+        [ForeignKey(nameof(Post))]
+        public int PostId { get; set; }
 
-        public string Author { get; set; } //is there a user class I am supposed to be using?
+        //is there a user class I am supposed to be using?
 
 
         //Foriegn Key

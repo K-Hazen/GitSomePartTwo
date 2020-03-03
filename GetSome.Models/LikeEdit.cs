@@ -10,7 +10,7 @@ namespace GetSome.Models
     public class LikeEdit
     {
         public int LikeId { get; set; }
-        public Post LikedPost { get; set; }
-        public User Liker { get; set; }
+        public int PostId { get; set; }
+        public Guid AuthorId { get; set; }
     }
 }

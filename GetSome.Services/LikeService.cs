@@ -23,13 +23,13 @@ namespace GetSome.Services
             var entity =
                 new Like()
                 {
-                    Liker = model.Liker,
-                    LikedPost = model.LikedPost
+                    AuthorId = _userId,
+                    PostId = model.PostId,
                 };
 
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Posts.Add(entity.LikedPost);
+                ctx.Likes.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }

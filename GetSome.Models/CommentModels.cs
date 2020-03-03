@@ -14,22 +14,18 @@ namespace GetSome.Models
 
         [MaxLength(8000)]
         public string Content { get; set; }
-
-        public string Author { get; set; }
     }
 
     public class CommentDetail
     {
         public int CommentId { get; set; }
-
-        public string Author { get; set; }
+        public string Content { get; set; }
+        public Guid AuthorId { get; set; }
     }
 
     public class CommentEdit
     {
         public int CommentId { get; set; }
-
-        public string Author { get; set; }
 
         [MaxLength(8000)]
         public string Content { get; set; }
@@ -38,7 +34,6 @@ namespace GetSome.Models
     public class CommentListItem
     {
         public int CommentId { get; set; }
-
-        public string Author { get; set; }
+        public Guid AuthorId { get; set; }
     }
 }
