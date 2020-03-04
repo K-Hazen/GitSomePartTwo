@@ -13,11 +13,14 @@ namespace GetSome.Data
 
         [Key]
         public int CommentId { get; set; }
+        
         [Required]
         public string Content { get; set; }
+        
         [Required]
         public Guid AuthorId { get; set; }
         public virtual Post Post { get; set; }
+        
         [ForeignKey(nameof(Post))]
         public int PostId { get; set; }
 
