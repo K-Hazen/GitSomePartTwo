@@ -23,6 +23,7 @@ namespace GetSome.Services
                     CommentId = model.CommentId,
                     Content = model.Content,
                     AuthorId = _userId,
+                    PostId = model.PostId,
 
                 };
 

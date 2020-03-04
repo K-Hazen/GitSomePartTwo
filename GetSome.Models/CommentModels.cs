@@ -14,6 +14,9 @@ namespace GetSome.Models
 
         [MaxLength(8000)]
         public string Content { get; set; }
+
+        public int PostId{ get; set; }
+
     }
 
     public class CommentDetail
