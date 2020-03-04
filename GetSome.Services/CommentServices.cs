@@ -57,15 +57,15 @@ namespace GetSome.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity =
+                var change =
                     ctx
                         .Comments
                         .Single(e => e.CommentId == id);
                 return
                     new CommentDetail
                     {
-                        CommentId = entity.CommentId,
-                        AuthorId = entity.AuthorId,
+                        CommentId = change.CommentId,
+                        AuthorId = change.AuthorId,
 
                     };
             }
